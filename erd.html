@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jointjs/2.1.0/joint.css" />
+    <link rel="stylesheet" href="erd.css">
+    <style>
+        button{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body style="background-color: black; color:white;">
+
+    <!-- THE UPPER PART OF THE WEB -->
+    <div style="width: 100%; height: 200px; margin: 10px;">
+        <button class="btn btn-primary" onclick="addEntity()">Create Entity</button>
+        <input type="text" name="entityName" id="entityName" placeholder="Entity Name">
+        <label for="entityType">Entity Type:</label>
+        <select name="entityType" id="entityType">
+            <option value="strong">strong</option>
+            <option value="weak">weak</option>
+        </select>
+        <span style="color: white; float: right; font-size: 30px; margin-right: 20px;">ER DIAGRAM MAKER</span><br>
+        <span style="color: white; float: right; font-size: 10px; margin-right: 20px;"><i>simplifying the difficult!</i></span>
+        <button class="btn btn-danger" onclick="addAttribute()">Create Attribute</button>
+        <input type="text" name="entityNameForAttribute" id="entityNameForAttribute" placeholder="entity name">
+        <input type="text" name="attributeName" id="attributeName" placeholder="attribute name">
+        <label for="entityType">Attribute Type:</label>
+        <select name="type" id="attributeType" style="text-align:center;">
+            <option value="key">primary key</option>
+            <option value="single" >single</option>
+            <option value="multi_valued" style="border: 1px solid red;">multi valued</option>
+            <option value="derived" style="border:1px dashed green">derived</option>
+        </select>
+        <button style="float: right;" class="btn btn-info" onclick="location.reload(false)">Clear</button><br>         
+        <button class="btn btn-success" onclick="createRelationship()">Create Relationship</button>
+        <input type="text" name="entity1Rel" id="entity1Rel" placeholder="Entity 1">
+        <input type="text" name="entity2Rel" id="entity2Rel" placeholder="Entity 2">
+        <label for="reltype">Relation Type:</label>
+        <select name="reltype" id="relType">
+            <option value="isa">isa</option>
+            <option value="custom_rel">custom relation</option>
+        </select>
+        <input type="text" name="relName" id="relName" placeholder="custom relation name">
+        <br>
+        <label for="entity1Val">Entity 1 Quantity:</label>
+        <select name="entity1Val" id="entity1Val">
+            <option value="1">1</option>
+            <option value="N">N</option>
+        </select>
+        <label for="entity2Val">Entity 2 Quantity:</label>
+        <select name="entity2Val" id="entity2Val">
+            <option value="1">1</option>
+            <option value="N">N</option>
+        </select><br> 
+    </div>
+
+    <!-- THE PAGE WHERE ERD MODELS SIT -->
+    <div id="myholder" ></div>
+
+    <!-- MY NAME AND GIT LINK -->
+
+    <footer style="float: right;">By - Yash Tailor <br>
+    <a href="https://www.github.com/yashtailor">github</a></footer>
+    
+
+    <!-- dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jointjs/2.1.0/joint.js"></script>
+    <script src="../src/erd.js"></script>
+    <!-- code -->
+
+    <script src="erd.js"></script>
+</body>
+
+</html>
